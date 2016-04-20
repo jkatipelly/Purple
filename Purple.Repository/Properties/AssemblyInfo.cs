@@ -8,11 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Purple.Repository")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Ashfield
-      ")]
+[assembly: AssemblyCompany("Ashfield")]
 [assembly: AssemblyProduct("Purple.Repository")]
-[assembly: AssemblyCopyright("Copyright © Ashfield
-       2016")]
+[assembly: AssemblyCopyright("Copyright © Ashfield 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

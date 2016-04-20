@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "1.0.0-*",
   "description": "Purple.Data Class Library",
   "authors": [ "jkatipelly" ],
@@ -7,7 +7,12 @@
   "licenseUrl": "",
 
   "frameworks": {
-    "net451": { },
+    "net451": {
+      "frameworkAssemblies": {
+        "System.Data.Entity": "4.0.0.0",
+        "System.Data.Entity.Design": "4.0.0.0"
+      }
+    },
     "dotnet5.4": {
       "dependencies": {
         "Microsoft.CSharp": "4.0.1-beta-23516",
