@@ -44,3 +44,9 @@ C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Tests\bi
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Tests\obj\Debug\Purple.Tests.csprojResolveAssemblyReference.cache
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Tests\obj\Debug\Purple.Tests.dll
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Tests\obj\Debug\Purple.Tests.pdb
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Tests\bin\Debug\Purple.DAL.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Tests\bin\Debug\EntityFramework.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Tests\bin\Debug\Purple.Entities.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Tests\bin\Debug\Purple.DAL.pdb
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Tests\bin\Debug\EntityFramework.xml
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Tests\bin\Debug\Purple.Entities.pdb

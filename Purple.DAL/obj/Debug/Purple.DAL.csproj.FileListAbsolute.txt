@@ -3,3 +3,8 @@ C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.DAL\bin\
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.DAL\bin\Debug\Purple.DAL.pdb
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.DAL\obj\Debug\Purple.DAL.dll
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.DAL\obj\Debug\Purple.DAL.pdb
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.DAL\bin\Debug\Purple.DAL.dll.config
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.DAL\bin\Debug\EntityFramework.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.DAL\bin\Debug\Purple.Entities.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.DAL\bin\Debug\Purple.Entities.pdb
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.DAL\bin\Debug\EntityFramework.xml

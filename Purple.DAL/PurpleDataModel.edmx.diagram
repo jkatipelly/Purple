@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aacec773fffd4f8482e5729e3f0b56de" Name="Diagram1">
+        <EntityTypeShape EntityType="PurpleModel.tblProperty" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PurpleModel.tblStatusLookup" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PurpleModel.tblUser" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PurpleModel.tblUserType" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PurpleModel.tblOffer" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="PurpleModel.FK_tblOffer_tblProperties" ManuallyRouted="false" />
+        <AssociationConnector Association="PurpleModel.FK_tblOffer_tblStatusLookup" ManuallyRouted="false" />
+        <AssociationConnector Association="PurpleModel.FK_tblOffer_tblUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="PurpleModel.FK_tblOffer_tblUsers1" ManuallyRouted="false" />
+        <AssociationConnector Association="PurpleModel.FK_tblUsers_tblUserType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
