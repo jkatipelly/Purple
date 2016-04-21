@@ -101,7 +101,7 @@
     </Key>
     <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="Binary" Nullable="false" MaxLength="50" FixedLength="false" />
     <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="UserTypeID" Type="Int32" Nullable="false" />
@@ -109,6 +109,7 @@
     <NavigationProperty Name="tblOffers" Relationship="PurpleModel.FK_tblOffer_tblUsers" FromRole="tblUser" ToRole="tblOffer" />
     <NavigationProperty Name="tblOffers1" Relationship="PurpleModel.FK_tblOffer_tblUsers1" FromRole="tblUser" ToRole="tblOffer" />
     <NavigationProperty Name="tblUserType" Relationship="PurpleModel.FK_tblUsers_tblUserType" FromRole="tblUser" ToRole="tblUserType" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
   </EntityType>
   <Association Name="FK_tblOffer_tblUsers">
     <End Type="PurpleModel.tblUser" Role="tblUser" Multiplicity="1" />

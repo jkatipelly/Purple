@@ -43,11 +43,12 @@ warning 6002: The table/view 'Purple.dbo.tblOffer' does not have a primary key d
           </Key>
           <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varbinary" MaxLength="50" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="UserTypeID" Type="int" Nullable="false" />
           <Property Name="EmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tblUserType">
           <Key>
@@ -256,7 +257,7 @@ FROM [dbo].[tblOffer] AS [tblOffer]</DefiningQuery>
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="Binary" Nullable="false" MaxLength="50" FixedLength="false" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UserTypeID" Type="Int32" Nullable="false" />
@@ -264,6 +265,7 @@ FROM [dbo].[tblOffer] AS [tblOffer]</DefiningQuery>
           <NavigationProperty Name="tblOffers" Relationship="PurpleModel.FK_tblOffer_tblUsers" FromRole="tblUser" ToRole="tblOffer" />
           <NavigationProperty Name="tblOffers1" Relationship="PurpleModel.FK_tblOffer_tblUsers1" FromRole="tblUser" ToRole="tblOffer" />
           <NavigationProperty Name="tblUserType" Relationship="PurpleModel.FK_tblUsers_tblUserType" FromRole="tblUser" ToRole="tblUserType" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_tblOffer_tblUsers">
           <End Type="PurpleModel.tblUser" Role="tblUser" Multiplicity="1" />
@@ -301,7 +303,7 @@ FROM [dbo].[tblOffer] AS [tblOffer]</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -347,6 +349,7 @@ FROM [dbo].[tblOffer] AS [tblOffer]</DefiningQuery>
           <EntitySetMapping Name="tblUsers">
             <EntityTypeMapping TypeName="PurpleModel.tblUser">
               <MappingFragment StoreEntitySet="tblUsers">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
                 <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />

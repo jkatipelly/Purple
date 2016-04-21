@@ -88,3 +88,11 @@ C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.WebAPI\b
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.WebAPI\bin\System.Web.Http.Owin.xml
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.WebAPI\obj\Debug\Purple.WebAPI.dll
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.WebAPI\obj\Debug\Purple.WebAPI.pdb
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.WebAPI\bin\Purple.Business.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.WebAPI\bin\Purple.Entities.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.WebAPI\bin\Purple.DAL.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.WebAPI\bin\AutoMapper.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.WebAPI\bin\Purple.Business.pdb
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.WebAPI\bin\Purple.Entities.pdb
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.WebAPI\bin\Purple.DAL.pdb
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.WebAPI\bin\AutoMapper.xml

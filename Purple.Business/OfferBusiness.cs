@@ -20,7 +20,7 @@ namespace Purple.Business
             _unitOfWork = new UnitOfWork();
         }
 
-        public Offer GetOfferyById(int offerId)
+        public Offer GetOfferById(int offerId)
         {
             var offer = _unitOfWork.OfferRepository.GetByID(offerId);
             if (offer != null)
@@ -71,14 +71,14 @@ namespace Purple.Business
 
 
 
-        public bool UpdateOffer(Offer _offer)
+        public bool UpdateOffer(int offerID,Offer _offer)
         {
             var success = false;
             if (_offer != null)
             {
                 using (var scope = new TransactionScope())
                 {
-                    var offer = _unitOfWork.OfferRepository.GetByID(_offer.OfferID);
+                    var offer = _unitOfWork.OfferRepository.GetByID(offerID);
                     if (offer != null)
                     {
 

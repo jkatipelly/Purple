@@ -7,6 +7,7 @@ using Purple.Entities;
 using Purple.DAL.UnitOfWork;
 using Purple.DAL;
 using System.Transactions;
+using AutoMapper;
 
 namespace Purple.Business
 {
@@ -20,29 +21,48 @@ namespace Purple.Business
             _unitOfWork = new UnitOfWork();
         }
 
+
+        /// <summary>
+        ///Gets user based on Userid
+        /// </summary>
+        /// <param name="userID"></param>
+     
+        public User GetById(int userID)
+        {
+            var user = _unitOfWork.UserRepository.GetByID(userID);
+            if (user != null)
+            {
+                Mapper.Initialize(cfg => { cfg.CreateMap<tblUser, User>(); });
+                var userModel = Mapper.Map<tblUser, User>(user);
+                return userModel;
+            }
+            return null;
+        }
+
+
+        /// <summary>
+        /// Validating User Credentials against database
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public bool Login(string username, string password)
         {
             var success = false;
-           // int users = _unitOfWork.UserRepository.Get();
-
-            //if (OfferID > 0)
-            //{
-            //    using (var scope = new TransactionScope())
-            //    {
-            //        var offer = _unitOfWork.OfferRepository.GetByID(OfferID);
-            //        if (offer != null)
-            //        {
-            //            _unitOfWork.OfferRepository.Delete(offer);
-            //            _unitOfWork.Save();
-            //            scope.Complete();
-            //            success = true;
-            //        }
-            //    }
-            //}
+            var user = _unitOfWork.UserRepository.GetAll().Where(u => u.UserName == username).FirstOrDefault();
+            Byte[] passwordBinary = Encoding.ASCII.GetBytes(password); //converting string to Byte array
+            if ((user != null) && (user.IsActive) && (passwordBinary.Equals(user.Password)))
+            {
+                success = true;
+            }
             return success;
-
         }
 
+        /// <summary>
+        /// Registering user
+        /// </summary>
+        /// <param name="_user"></param>
+        /// <returns></returns>
         public int RegisterUser(User _user)
         {
             using (var scope = new TransactionScope())
@@ -51,9 +71,10 @@ namespace Purple.Business
                 {
                     FirstName = _user.FirstName,
                     LastName = _user.LastName,
-                    Password = _user.Password,
+                    Password = Encoding.ASCII.GetBytes(_user.Password),
                     EmailAddress = _user.Email,
-                    UserTypeID=_user.UserType
+                    UserTypeID=_user.UserType,
+                    IsActive=_user.IsActive
                
                 };
 
@@ -63,22 +84,26 @@ namespace Purple.Business
                 return user.UserID;
             }
         }
-
-        public bool UpdateUser(User _user)
+        /// <summary>
+        /// Updating User Record, for updating details or to deactivate account
+        /// </summary>
+        /// <param name="_user"></param>
+        /// <returns></returns>
+        public bool UpdateUser(int userid, User _user)
         {
             var success = false;
             if (_user != null)
             {
                 using (var scope = new TransactionScope())
                 {
-                    var user = _unitOfWork.UserRepository.GetByID(_user.UserID);
+                    var user = _unitOfWork.UserRepository.GetByID(userid);
                     if (user != null)
                     {
                         user.FirstName = _user.FirstName;
                         user.LastName = _user.LastName;
-                        user.Password = _user.Password;
+                        user.Password = Encoding.ASCII.GetBytes(_user.Password);
                         user.EmailAddress = _user.Email;
-
+                        user.IsActive = _user.IsActive;
 
                         _unitOfWork.UserRepository.Update(user);
                         _unitOfWork.Save();

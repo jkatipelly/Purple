@@ -22,11 +22,12 @@ namespace Purple.DAL
     
         public int UserID { get; set; }
         public string UserName { get; set; }
-        public string Password { get; set; }
+        public byte[] Password { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int UserTypeID { get; set; }
         public string EmailAddress { get; set; }
+        public bool IsActive { get; set; }
     
         public virtual ICollection<tblOffer> tblOffers { get; set; }
         public virtual ICollection<tblOffer> tblOffers1 { get; set; }

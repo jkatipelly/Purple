@@ -321,6 +321,16 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Purple.Business\Purple.Business.csproj">
+      <Project>{e7ee7570-0090-4fac-b09a-980f6b24cbb3}</Project>
+      <Name>Purple.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Purple.Entities\Purple.Entities.csproj">
+      <Project>{67bb1d36-a573-4e7a-bb1d-8757c4c12270}</Project>
+      <Name>Purple.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

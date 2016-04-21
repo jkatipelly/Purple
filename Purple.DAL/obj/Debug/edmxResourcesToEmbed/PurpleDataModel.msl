@@ -41,6 +41,7 @@
     <EntitySetMapping Name="tblUsers">
       <EntityTypeMapping TypeName="PurpleModel.tblUser">
         <MappingFragment StoreEntitySet="tblUsers">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
           <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />

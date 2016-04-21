@@ -28,5 +28,8 @@ namespace Purple.Entities
 
         [Required(ErrorMessage = "*")]
         public string Password { get; set; }
+
+        public bool IsActive { get; set; }
+
     }
 }

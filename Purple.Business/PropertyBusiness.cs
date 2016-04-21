@@ -62,7 +62,7 @@ namespace Purple.Business
         /// </summary>
         /// <param name="_property"></param>
         /// <returns></returns>
-        public bool UpdateProperty(Property _property)
+        public bool UpdateProperty(int propertyID,Property _property)
         {
 
             var success = false;
@@ -70,7 +70,7 @@ namespace Purple.Business
             {
                 using (var scope = new TransactionScope())
                 {
-                    var property = _unitOfWork.PropertyRepository.GetByID(_property.PropertyID);
+                    var property = _unitOfWork.PropertyRepository.GetByID(propertyID);
                     if (property != null)
                     {
                         property.Description = _property.Description;

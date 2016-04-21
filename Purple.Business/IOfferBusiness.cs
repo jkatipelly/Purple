@@ -9,10 +9,10 @@ namespace Purple.Business
 {
     public interface IOfferBusiness
     {
-        Offer GetOfferyById(int offerId);
+        Offer GetOfferById(int offerId);
         IEnumerable<Offer> GetAllOffers();
         int CreateOffer(Offer offer);
-        bool UpdateOffer(Offer offer);
+        bool UpdateOffer(int offerID,Offer offer);
         bool DeleteOffer(int OfferID);
     }
 }

@@ -12,7 +12,7 @@ namespace Purple.Business
         Property GetPropertyById(int propertyId);
         IEnumerable<Property> GetAllProperties();
         int CreateProperty(Property property);
-        bool UpdateProperty(Property property);
+        bool UpdateProperty(int propertyID,Property property);
         bool DeleteProperty(int propertyId);
     }
 }
