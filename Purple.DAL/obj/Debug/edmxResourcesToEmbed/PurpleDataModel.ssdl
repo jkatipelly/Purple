@@ -42,7 +42,7 @@ warning 6002: The table/view 'Purple.dbo.tblOffer' does not have a primary key d
     <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="UserTypeID" Type="int" Nullable="false" />
-    <Property Name="EmailAddress" Type="varbinary" MaxLength="50" Nullable="false" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="tblUserType">
     <Key>

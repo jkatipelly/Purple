@@ -47,6 +47,16 @@ namespace Purple.DAL.GenericRepository
         }
 
         /// <summary>
+        /// generic method to fetch all the records from db
+        /// </summary>
+        /// <returns></returns>
+        public virtual IEnumerable<TEntity> GetAll()
+        {
+            return DbSet.ToList();
+        }
+
+
+        /// <summary>
         /// generic Insert method for the entities
         /// </summary>
         /// <param name="entity"></param>

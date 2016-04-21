@@ -26,7 +26,7 @@ namespace Purple.DAL
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int UserTypeID { get; set; }
-        public byte[] EmailAddress { get; set; }
+        public string EmailAddress { get; set; }
     
         public virtual ICollection<tblOffer> tblOffers { get; set; }
         public virtual ICollection<tblOffer> tblOffers1 { get; set; }

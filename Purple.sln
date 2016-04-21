@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Purple.DAL", "Purple.DAL\Pu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Purple.Entities", "Purple.Entities\Purple.Entities.csproj", "{67BB1D36-A573-4E7A-BB1D-8757C4C12270}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Purple.Business", "Purple.Business\Purple.Business.csproj", "{E7EE7570-0090-4FAC-B09A-980F6B24CBB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{67BB1D36-A573-4E7A-BB1D-8757C4C12270}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67BB1D36-A573-4E7A-BB1D-8757C4C12270}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67BB1D36-A573-4E7A-BB1D-8757C4C12270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7EE7570-0090-4FAC-B09A-980F6B24CBB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7EE7570-0090-4FAC-B09A-980F6B24CBB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7EE7570-0090-4FAC-B09A-980F6B24CBB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7EE7570-0090-4FAC-B09A-980F6B24CBB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
