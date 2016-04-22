@@ -31,6 +31,16 @@
           <Property Name="StatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="tblTokens">
+          <Key>
+            <PropertyRef Name="TokenID" />
+          </Key>
+          <Property Name="TokenID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="AuthToken" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="IssuedOn" Type="datetime" Nullable="false" />
+          <Property Name="ExpiresOn" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="tblUsers">
           <Key>
             <PropertyRef Name="UserID" />
@@ -99,6 +109,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tblTokens_tblUsers">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="1" />
+          <End Role="tblTokens" Type="Self.tblTokens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tblTokens">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tblUsers_tblUserType">
           <End Role="tblUserType" Type="Self.tblUserType" Multiplicity="1" />
           <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="*" />
@@ -115,6 +137,7 @@
           <EntitySet Name="tblOffer" EntityType="Self.tblOffer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblProperties" EntityType="Self.tblProperties" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblStatusLookup" EntityType="Self.tblStatusLookup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblTokens" EntityType="Self.tblTokens" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUserType" EntityType="Self.tblUserType" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tblOffer_tblProperties" Association="Self.FK_tblOffer_tblProperties">
@@ -132,6 +155,10 @@
           <AssociationSet Name="FK_tblOfferSellerID_tblUsersUserID" Association="Self.FK_tblOfferSellerID_tblUsersUserID">
             <End Role="tblUsers" EntitySet="tblUsers" />
             <End Role="tblOffer" EntitySet="tblOffer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tblTokens_tblUsers" Association="Self.FK_tblTokens_tblUsers">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblTokens" EntitySet="tblTokens" />
           </AssociationSet>
           <AssociationSet Name="FK_tblUsers_tblUserType" Association="Self.FK_tblUsers_tblUserType">
             <End Role="tblUserType" EntitySet="tblUserType" />
@@ -168,6 +195,11 @@
             <End Role="tblUser" EntitySet="tblUsers" />
             <End Role="tblOffer" EntitySet="tblOffers" />
           </AssociationSet>
+          <EntitySet Name="tblTokens" EntityType="PurpleModel.tblToken" />
+          <AssociationSet Name="FK_tblTokens_tblUsers" Association="PurpleModel.FK_tblTokens_tblUsers">
+            <End Role="tblUser" EntitySet="tblUsers" />
+            <End Role="tblToken" EntitySet="tblTokens" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="tblProperty">
           <Key>
@@ -202,6 +234,7 @@
           <NavigationProperty Name="tblUserType" Relationship="PurpleModel.FK_tblUsers_tblUserType" FromRole="tblUser" ToRole="tblUserType" />
           <NavigationProperty Name="tblOffers" Relationship="PurpleModel.FK_tblOfferBuyyerID_tblUsersUserID" FromRole="tblUser" ToRole="tblOffer" />
           <NavigationProperty Name="tblOffers1" Relationship="PurpleModel.FK_tblOfferSellerID_tblUsersUserID" FromRole="tblUser" ToRole="tblOffer" />
+          <NavigationProperty Name="tblTokens" Relationship="PurpleModel.FK_tblTokens_tblUsers" FromRole="tblUser" ToRole="tblToken" />
         </EntityType>
         <EntityType Name="tblUserType">
           <Key>
@@ -285,6 +318,29 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tblToken">
+          <Key>
+            <PropertyRef Name="TokenID" />
+          </Key>
+          <Property Name="TokenID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="AuthToken" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IssuedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExpiresOn" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tblUser" Relationship="PurpleModel.FK_tblTokens_tblUsers" FromRole="tblToken" ToRole="tblUser" />
+        </EntityType>
+        <Association Name="FK_tblTokens_tblUsers">
+          <End Type="PurpleModel.tblUser" Role="tblUser" Multiplicity="1" />
+          <End Type="PurpleModel.tblToken" Role="tblToken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="tblToken">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -339,6 +395,17 @@
                 <ScalarProperty Name="BuyerID" ColumnName="BuyerID" />
                 <ScalarProperty Name="PropertyID" ColumnName="PropertyID" />
                 <ScalarProperty Name="OfferID" ColumnName="OfferID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblTokens">
+            <EntityTypeMapping TypeName="PurpleModel.tblToken">
+              <MappingFragment StoreEntitySet="tblTokens">
+                <ScalarProperty Name="ExpiresOn" ColumnName="ExpiresOn" />
+                <ScalarProperty Name="IssuedOn" ColumnName="IssuedOn" />
+                <ScalarProperty Name="AuthToken" ColumnName="AuthToken" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="TokenID" ColumnName="TokenID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

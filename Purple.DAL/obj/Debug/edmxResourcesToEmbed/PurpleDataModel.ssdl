@@ -26,6 +26,16 @@
     <Property Name="StatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="tblTokens">
+    <Key>
+      <PropertyRef Name="TokenID" />
+    </Key>
+    <Property Name="TokenID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="AuthToken" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="IssuedOn" Type="datetime" Nullable="false" />
+    <Property Name="ExpiresOn" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="tblUsers">
     <Key>
       <PropertyRef Name="UserID" />
@@ -94,6 +104,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_tblTokens_tblUsers">
+    <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="1" />
+    <End Role="tblTokens" Type="Self.tblTokens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUsers">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tblTokens">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tblUsers_tblUserType">
     <End Role="tblUserType" Type="Self.tblUserType" Multiplicity="1" />
     <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="*" />
@@ -110,6 +132,7 @@
     <EntitySet Name="tblOffer" EntityType="Self.tblOffer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblProperties" EntityType="Self.tblProperties" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblStatusLookup" EntityType="Self.tblStatusLookup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTokens" EntityType="Self.tblTokens" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tblUserType" EntityType="Self.tblUserType" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_tblOffer_tblProperties" Association="Self.FK_tblOffer_tblProperties">
@@ -127,6 +150,10 @@
     <AssociationSet Name="FK_tblOfferSellerID_tblUsersUserID" Association="Self.FK_tblOfferSellerID_tblUsersUserID">
       <End Role="tblUsers" EntitySet="tblUsers" />
       <End Role="tblOffer" EntitySet="tblOffer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblTokens_tblUsers" Association="Self.FK_tblTokens_tblUsers">
+      <End Role="tblUsers" EntitySet="tblUsers" />
+      <End Role="tblTokens" EntitySet="tblTokens" />
     </AssociationSet>
     <AssociationSet Name="FK_tblUsers_tblUserType" Association="Self.FK_tblUsers_tblUserType">
       <End Role="tblUserType" EntitySet="tblUserType" />

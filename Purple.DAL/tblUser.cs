@@ -18,6 +18,7 @@ namespace Purple.DAL
         {
             this.tblOffers = new HashSet<tblOffer>();
             this.tblOffers1 = new HashSet<tblOffer>();
+            this.tblTokens = new HashSet<tblToken>();
         }
     
         public int UserID { get; set; }
@@ -32,5 +33,6 @@ namespace Purple.DAL
         public virtual tblUserType tblUserType { get; set; }
         public virtual ICollection<tblOffer> tblOffers { get; set; }
         public virtual ICollection<tblOffer> tblOffers1 { get; set; }
+        public virtual ICollection<tblToken> tblTokens { get; set; }
     }
 }

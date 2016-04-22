@@ -26,6 +26,11 @@
       <End Role="tblUser" EntitySet="tblUsers" />
       <End Role="tblOffer" EntitySet="tblOffers" />
     </AssociationSet>
+    <EntitySet Name="tblTokens" EntityType="PurpleModel.tblToken" />
+    <AssociationSet Name="FK_tblTokens_tblUsers" Association="PurpleModel.FK_tblTokens_tblUsers">
+      <End Role="tblUser" EntitySet="tblUsers" />
+      <End Role="tblToken" EntitySet="tblTokens" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="tblProperty">
     <Key>
@@ -60,6 +65,7 @@
     <NavigationProperty Name="tblUserType" Relationship="PurpleModel.FK_tblUsers_tblUserType" FromRole="tblUser" ToRole="tblUserType" />
     <NavigationProperty Name="tblOffers" Relationship="PurpleModel.FK_tblOfferBuyyerID_tblUsersUserID" FromRole="tblUser" ToRole="tblOffer" />
     <NavigationProperty Name="tblOffers1" Relationship="PurpleModel.FK_tblOfferSellerID_tblUsersUserID" FromRole="tblUser" ToRole="tblOffer" />
+    <NavigationProperty Name="tblTokens" Relationship="PurpleModel.FK_tblTokens_tblUsers" FromRole="tblUser" ToRole="tblToken" />
   </EntityType>
   <EntityType Name="tblUserType">
     <Key>
@@ -140,6 +146,29 @@
       </Principal>
       <Dependent Role="tblOffer">
         <PropertyRef Name="SellerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="tblToken">
+    <Key>
+      <PropertyRef Name="TokenID" />
+    </Key>
+    <Property Name="TokenID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="AuthToken" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IssuedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExpiresOn" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="tblUser" Relationship="PurpleModel.FK_tblTokens_tblUsers" FromRole="tblToken" ToRole="tblUser" />
+  </EntityType>
+  <Association Name="FK_tblTokens_tblUsers">
+    <End Type="PurpleModel.tblUser" Role="tblUser" Multiplicity="1" />
+    <End Type="PurpleModel.tblToken" Role="tblToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tblToken">
+        <PropertyRef Name="UserID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
