@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PurpleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Purple.dbo.tblOffer' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tblOffer">
+    <Key>
+      <PropertyRef Name="OfferID" />
+      <PropertyRef Name="PropertyID" />
+      <PropertyRef Name="BuyerID" />
+      <PropertyRef Name="SellerID" />
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="OfferID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PropertyID" Type="int" Nullable="false" />
+    <Property Name="BuyerID" Type="int" Nullable="false" />
+    <Property Name="SellerID" Type="int" Nullable="false" />
+    <Property Name="StatusID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblProperties">
+    <Key>
+      <PropertyRef Name="PropertyID" />
+    </Key>
+    <Property Name="PropertyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="IsSold" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblStatusLookup">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUsers">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserTypeID" Type="int" Nullable="false" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblUserType">
+    <Key>
+      <PropertyRef Name="UserTypeID" />
+    </Key>
+    <Property Name="UserTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_tblOffer_tblProperties">
+    <End Role="tblProperties" Type="Self.tblProperties" Multiplicity="1" />
+    <End Role="tblOffer" Type="Self.tblOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProperties">
+        <PropertyRef Name="PropertyID" />
+      </Principal>
+      <Dependent Role="tblOffer">
+        <PropertyRef Name="PropertyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblOffer_tblStatusLookup">
+    <End Role="tblStatusLookup" Type="Self.tblStatusLookup" Multiplicity="1" />
+    <End Role="tblOffer" Type="Self.tblOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStatusLookup">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="tblOffer">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblOfferBuyyerID_tblUsersUserID">
+    <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="1" />
+    <End Role="tblOffer" Type="Self.tblOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUsers">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tblOffer">
+        <PropertyRef Name="BuyerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblOfferSellerID_tblUsersUserID">
+    <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="1" />
+    <End Role="tblOffer" Type="Self.tblOffer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUsers">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="tblOffer">
+        <PropertyRef Name="SellerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblUsers_tblUserType">
+    <End Role="tblUserType" Type="Self.tblUserType" Multiplicity="1" />
+    <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUserType">
+        <PropertyRef Name="UserTypeID" />
+      </Principal>
+      <Dependent Role="tblUsers">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PurpleModelStoreContainer">
+    <EntitySet Name="tblProperties" EntityType="Self.tblProperties" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStatusLookup" EntityType="Self.tblStatusLookup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUserType" EntityType="Self.tblUserType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblOffer" EntityType="Self.tblOffer" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[tblOffer].[OfferID] AS [OfferID], 
+[tblOffer].[PropertyID] AS [PropertyID], 
+[tblOffer].[BuyerID] AS [BuyerID], 
+[tblOffer].[SellerID] AS [SellerID], 
+[tblOffer].[StatusID] AS [StatusID]
+FROM [dbo].[tblOffer] AS [tblOffer]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_tblOffer_tblProperties" Association="Self.FK_tblOffer_tblProperties">
+      <End Role="tblProperties" EntitySet="tblProperties" />
+      <End Role="tblOffer" EntitySet="tblOffer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblOffer_tblStatusLookup" Association="Self.FK_tblOffer_tblStatusLookup">
+      <End Role="tblStatusLookup" EntitySet="tblStatusLookup" />
+      <End Role="tblOffer" EntitySet="tblOffer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblOfferBuyyerID_tblUsersUserID" Association="Self.FK_tblOfferBuyyerID_tblUsersUserID">
+      <End Role="tblUsers" EntitySet="tblUsers" />
+      <End Role="tblOffer" EntitySet="tblOffer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblOfferSellerID_tblUsersUserID" Association="Self.FK_tblOfferSellerID_tblUsersUserID">
+      <End Role="tblUsers" EntitySet="tblUsers" />
+      <End Role="tblOffer" EntitySet="tblOffer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblUsers_tblUserType" Association="Self.FK_tblUsers_tblUserType">
+      <End Role="tblUserType" EntitySet="tblUserType" />
+      <End Role="tblUsers" EntitySet="tblUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

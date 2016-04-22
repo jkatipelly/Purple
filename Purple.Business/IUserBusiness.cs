@@ -9,7 +9,7 @@ namespace Purple.Business
     public interface IUserBusiness
     {
         User GetById(int userID);
-        bool Login(string username, string password);
+        int Login(string username, string password);
         int RegisterUser(User user);
         bool UpdateUser(int userId,User user);
     }

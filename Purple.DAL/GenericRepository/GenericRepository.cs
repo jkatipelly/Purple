@@ -69,9 +69,9 @@ namespace Purple.DAL.GenericRepository
         /// Generic Delete method for the entities
         /// </summary>
         /// <param name="id"></param>
-        public virtual void Delete(object id)
+        public virtual void Delete(TEntity entity)
         {
-            TEntity entityToDelete = DbSet.Find(id);
+            TEntity entityToDelete = DbSet.Find(entity);
             Delete(entityToDelete);
         }
 

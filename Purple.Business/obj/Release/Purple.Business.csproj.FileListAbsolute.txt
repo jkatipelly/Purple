@@ -1,0 +1,13 @@
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Business\obj\Release\Purple.Business.csprojResolveAssemblyReference.cache
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Business\bin\Release\Purple.Business.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Business\bin\Release\Purple.Business.pdb
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Business\bin\Release\AutoMapper.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Business\bin\Release\Purple.DAL.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Business\bin\Release\Purple.Entities.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Business\bin\Release\EntityFramework.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Business\bin\Release\Purple.DAL.pdb
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Business\bin\Release\Purple.Entities.pdb
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Business\bin\Release\AutoMapper.xml
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Business\bin\Release\EntityFramework.xml
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Business\obj\Release\Purple.Business.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Business\obj\Release\Purple.Business.pdb

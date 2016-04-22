@@ -27,8 +27,8 @@ namespace Purple.DAL
     
         public DbSet<tblProperty> tblProperties { get; set; }
         public DbSet<tblStatusLookup> tblStatusLookups { get; set; }
+        public DbSet<tblUser> tblUsers { get; set; }
         public DbSet<tblUserType> tblUserTypes { get; set; }
         public DbSet<tblOffer> tblOffers { get; set; }
-        public DbSet<tblUser> tblUsers { get; set; }
     }
 }

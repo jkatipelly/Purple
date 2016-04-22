@@ -5,17 +5,17 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="aacec773fffd4f8482e5729e3f0b56de" Name="Diagram1">
-        <EntityTypeShape EntityType="PurpleModel.tblProperty" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="PurpleModel.tblStatusLookup" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PurpleModel.tblUserType" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="PurpleModel.tblOffer" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <AssociationConnector Association="PurpleModel.FK_tblOffer_tblProperties" ManuallyRouted="false" />
-        <AssociationConnector Association="PurpleModel.FK_tblOffer_tblStatusLookup" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PurpleModel.tblProperty" Width="1.5" PointX="3" PointY="5.25" />
+        <EntityTypeShape EntityType="PurpleModel.tblStatusLookup" Width="1.5" PointX="3" PointY="8" />
         <EntityTypeShape EntityType="PurpleModel.tblUser" Width="1.5" PointX="3" PointY="1" />
-        <AssociationConnector Association="PurpleModel.FK_tblOffer_tblUsers" />
-        <AssociationConnector Association="PurpleModel.FK_tblOffer_tblUsers1" />
+        <EntityTypeShape EntityType="PurpleModel.tblUserType" Width="1.5" PointX="0.75" PointY="1.75" />
         <AssociationConnector Association="PurpleModel.FK_tblUsers_tblUserType" />
-        </Diagram>
+        <EntityTypeShape EntityType="PurpleModel.tblOffer" Width="1.5" PointX="5.25" PointY="3.875" />
+        <AssociationConnector Association="PurpleModel.FK_tblOffer_tblProperties" />
+        <AssociationConnector Association="PurpleModel.FK_tblOffer_tblStatusLookup" />
+        <AssociationConnector Association="PurpleModel.FK_tblOfferBuyyerID_tblUsersUserID" />
+        <AssociationConnector Association="PurpleModel.FK_tblOfferSellerID_tblUsersUserID" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

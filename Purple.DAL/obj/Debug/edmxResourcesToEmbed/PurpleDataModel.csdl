@@ -1,54 +1,105 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="PurpleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PurpleEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblProperties" EntityType="PurpleModel.tblProperty" />
+    <EntitySet Name="tblStatusLookups" EntityType="PurpleModel.tblStatusLookup" />
+    <EntitySet Name="tblUsers" EntityType="PurpleModel.tblUser" />
+    <EntitySet Name="tblUserTypes" EntityType="PurpleModel.tblUserType" />
+    <AssociationSet Name="FK_tblUsers_tblUserType" Association="PurpleModel.FK_tblUsers_tblUserType">
+      <End Role="tblUserType" EntitySet="tblUserTypes" />
+      <End Role="tblUser" EntitySet="tblUsers" />
+    </AssociationSet>
+    <EntitySet Name="tblOffers" EntityType="PurpleModel.tblOffer" />
+    <AssociationSet Name="FK_tblOffer_tblProperties" Association="PurpleModel.FK_tblOffer_tblProperties">
+      <End Role="tblProperty" EntitySet="tblProperties" />
+      <End Role="tblOffer" EntitySet="tblOffers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblOffer_tblStatusLookup" Association="PurpleModel.FK_tblOffer_tblStatusLookup">
+      <End Role="tblStatusLookup" EntitySet="tblStatusLookups" />
+      <End Role="tblOffer" EntitySet="tblOffers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblOfferBuyyerID_tblUsersUserID" Association="PurpleModel.FK_tblOfferBuyyerID_tblUsersUserID">
+      <End Role="tblUser" EntitySet="tblUsers" />
+      <End Role="tblOffer" EntitySet="tblOffers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblOfferSellerID_tblUsersUserID" Association="PurpleModel.FK_tblOfferSellerID_tblUsersUserID">
+      <End Role="tblUser" EntitySet="tblUsers" />
+      <End Role="tblOffer" EntitySet="tblOffers" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="tblProperty">
     <Key>
       <PropertyRef Name="PropertyID" />
     </Key>
     <Property Name="PropertyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
     <Property Name="IsSold" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="tblOffers" Relationship="Self.FK_tblOffer_tblProperties" FromRole="tblProperties" ToRole="tblOffer" />
+    <NavigationProperty Name="tblOffers" Relationship="PurpleModel.FK_tblOffer_tblProperties" FromRole="tblProperty" ToRole="tblOffer" />
   </EntityType>
   <EntityType Name="tblStatusLookup">
     <Key>
       <PropertyRef Name="StatusID" />
     </Key>
     <Property Name="StatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <NavigationProperty Name="tblOffers" Relationship="Self.FK_tblOffer_tblStatusLookup" FromRole="tblStatusLookup" ToRole="tblOffer" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tblOffers" Relationship="PurpleModel.FK_tblOffer_tblStatusLookup" FromRole="tblStatusLookup" ToRole="tblOffer" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserTypeID" Type="Int32" Nullable="false" />
+    <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tblUserType" Relationship="PurpleModel.FK_tblUsers_tblUserType" FromRole="tblUser" ToRole="tblUserType" />
+    <NavigationProperty Name="tblOffers" Relationship="PurpleModel.FK_tblOfferBuyyerID_tblUsersUserID" FromRole="tblUser" ToRole="tblOffer" />
+    <NavigationProperty Name="tblOffers1" Relationship="PurpleModel.FK_tblOfferSellerID_tblUsersUserID" FromRole="tblUser" ToRole="tblOffer" />
   </EntityType>
   <EntityType Name="tblUserType">
     <Key>
       <PropertyRef Name="UserTypeID" />
     </Key>
     <Property Name="UserTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Description" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="tblUsers" Relationship="PurpleModel.FK_tblUsers_tblUserType" FromRole="tblUserType" ToRole="tblUser" />
   </EntityType>
+  <Association Name="FK_tblUsers_tblUserType">
+    <End Type="PurpleModel.tblUserType" Role="tblUserType" Multiplicity="1" />
+    <End Type="PurpleModel.tblUser" Role="tblUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUserType">
+        <PropertyRef Name="UserTypeID" />
+      </Principal>
+      <Dependent Role="tblUser">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityType Name="tblOffer">
     <Key>
       <PropertyRef Name="OfferID" />
-      <PropertyRef Name="PropertyID" />
-      <PropertyRef Name="BuyerID" />
-      <PropertyRef Name="SellerID" />
-      <PropertyRef Name="StatusID" />
     </Key>
-    <Property Name="OfferID" Type="Int32" Nullable="false" />
+    <Property Name="OfferID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PropertyID" Type="Int32" Nullable="false" />
     <Property Name="BuyerID" Type="Int32" Nullable="false" />
     <Property Name="SellerID" Type="Int32" Nullable="false" />
     <Property Name="StatusID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="tblProperty" Relationship="Self.FK_tblOffer_tblProperties" FromRole="tblOffer" ToRole="tblProperties" />
-    <NavigationProperty Name="tblStatusLookup" Relationship="Self.FK_tblOffer_tblStatusLookup" FromRole="tblOffer" ToRole="tblStatusLookup" />
-    <NavigationProperty Name="tblUser" Relationship="PurpleModel.FK_tblOffer_tblUsers" FromRole="tblOffer" ToRole="tblUser" />
-    <NavigationProperty Name="tblUser1" Relationship="PurpleModel.FK_tblOffer_tblUsers1" FromRole="tblOffer" ToRole="tblUser" />
+    <NavigationProperty Name="tblProperty" Relationship="PurpleModel.FK_tblOffer_tblProperties" FromRole="tblOffer" ToRole="tblProperty" />
+    <NavigationProperty Name="tblStatusLookup" Relationship="PurpleModel.FK_tblOffer_tblStatusLookup" FromRole="tblOffer" ToRole="tblStatusLookup" />
+    <NavigationProperty Name="tblUser" Relationship="PurpleModel.FK_tblOfferBuyyerID_tblUsersUserID" FromRole="tblOffer" ToRole="tblUser" />
+    <NavigationProperty Name="tblUser1" Relationship="PurpleModel.FK_tblOfferSellerID_tblUsersUserID" FromRole="tblOffer" ToRole="tblUser" />
   </EntityType>
   <Association Name="FK_tblOffer_tblProperties">
-    <End Role="tblProperties" Type="Self.tblProperty" Multiplicity="1" />
-    <End Role="tblOffer" Type="Self.tblOffer" Multiplicity="*" />
+    <End Type="PurpleModel.tblProperty" Role="tblProperty" Multiplicity="1" />
+    <End Type="PurpleModel.tblOffer" Role="tblOffer" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tblProperties">
+      <Principal Role="tblProperty">
         <PropertyRef Name="PropertyID" />
       </Principal>
       <Dependent Role="tblOffer">
@@ -57,8 +108,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_tblOffer_tblStatusLookup">
-    <End Role="tblStatusLookup" Type="Self.tblStatusLookup" Multiplicity="1" />
-    <End Role="tblOffer" Type="Self.tblOffer" Multiplicity="*" />
+    <End Type="PurpleModel.tblStatusLookup" Role="tblStatusLookup" Multiplicity="1" />
+    <End Type="PurpleModel.tblOffer" Role="tblOffer" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="tblStatusLookup">
         <PropertyRef Name="StatusID" />
@@ -68,62 +119,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="PurpleEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="tblProperties" EntityType="Self.tblProperty" />
-    <EntitySet Name="tblStatusLookups" EntityType="Self.tblStatusLookup" />
-    <EntitySet Name="tblUserTypes" EntityType="Self.tblUserType" />
-    <EntitySet Name="tblOffers" EntityType="Self.tblOffer" />
-    <AssociationSet Name="FK_tblOffer_tblProperties" Association="Self.FK_tblOffer_tblProperties">
-      <End Role="tblProperties" EntitySet="tblProperties" />
-      <End Role="tblOffer" EntitySet="tblOffers" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tblOffer_tblStatusLookup" Association="Self.FK_tblOffer_tblStatusLookup">
-      <End Role="tblStatusLookup" EntitySet="tblStatusLookups" />
-      <End Role="tblOffer" EntitySet="tblOffers" />
-    </AssociationSet>
-    <EntitySet Name="tblUsers" EntityType="PurpleModel.tblUser" />
-    <AssociationSet Name="FK_tblOffer_tblUsers" Association="PurpleModel.FK_tblOffer_tblUsers">
-      <End Role="tblUser" EntitySet="tblUsers" />
-      <End Role="tblOffer" EntitySet="tblOffers" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tblOffer_tblUsers1" Association="PurpleModel.FK_tblOffer_tblUsers1">
-      <End Role="tblUser" EntitySet="tblUsers" />
-      <End Role="tblOffer" EntitySet="tblOffers" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tblUsers_tblUserType" Association="PurpleModel.FK_tblUsers_tblUserType">
-      <End Role="tblUserType" EntitySet="tblUserTypes" />
-      <End Role="tblUser" EntitySet="tblUsers" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="tblUser">
-    <Key>
-      <PropertyRef Name="UserID" />
-    </Key>
-    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="Binary" Nullable="false" MaxLength="50" FixedLength="false" />
-    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="UserTypeID" Type="Int32" Nullable="false" />
-    <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="tblOffers" Relationship="PurpleModel.FK_tblOffer_tblUsers" FromRole="tblUser" ToRole="tblOffer" />
-    <NavigationProperty Name="tblOffers1" Relationship="PurpleModel.FK_tblOffer_tblUsers1" FromRole="tblUser" ToRole="tblOffer" />
-    <NavigationProperty Name="tblUserType" Relationship="PurpleModel.FK_tblUsers_tblUserType" FromRole="tblUser" ToRole="tblUserType" />
-    <Property Name="IsActive" Type="Boolean" Nullable="false" />
-  </EntityType>
-  <Association Name="FK_tblOffer_tblUsers">
-    <End Type="PurpleModel.tblUser" Role="tblUser" Multiplicity="1" />
-    <End Type="PurpleModel.tblOffer" Role="tblOffer" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tblUser">
-        <PropertyRef Name="UserID" />
-      </Principal>
-      <Dependent Role="tblOffer">
-        <PropertyRef Name="SellerID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tblOffer_tblUsers1">
+  <Association Name="FK_tblOfferBuyyerID_tblUsersUserID">
     <End Type="PurpleModel.tblUser" Role="tblUser" Multiplicity="1" />
     <End Type="PurpleModel.tblOffer" Role="tblOffer" Multiplicity="*" />
     <ReferentialConstraint>
@@ -135,15 +131,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_tblUsers_tblUserType">
-    <End Type="PurpleModel.tblUserType" Role="tblUserType" Multiplicity="1" />
-    <End Type="PurpleModel.tblUser" Role="tblUser" Multiplicity="*" />
+  <Association Name="FK_tblOfferSellerID_tblUsersUserID">
+    <End Type="PurpleModel.tblUser" Role="tblUser" Multiplicity="1" />
+    <End Type="PurpleModel.tblOffer" Role="tblOffer" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="tblUserType">
-        <PropertyRef Name="UserTypeID" />
+      <Principal Role="tblUser">
+        <PropertyRef Name="UserID" />
       </Principal>
-      <Dependent Role="tblUser">
-        <PropertyRef Name="UserTypeID" />
+      <Dependent Role="tblOffer">
+        <PropertyRef Name="SellerID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

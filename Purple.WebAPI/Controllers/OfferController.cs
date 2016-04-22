@@ -14,9 +14,9 @@ namespace Purple.WebAPI.Controllers
 
         private readonly IOfferBusiness _offerBusiness;
 
-        public OfferController()
+        public OfferController(IOfferBusiness offerBusiness)
         {
-            _offerBusiness = new OfferBusiness();
+            _offerBusiness = offerBusiness;
         }
         // GET: api/Offer
         public HttpResponseMessage Get()

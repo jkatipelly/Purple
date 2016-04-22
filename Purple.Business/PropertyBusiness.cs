@@ -7,7 +7,6 @@ using Purple.Entities;
 using Purple.DAL;
 using System.Transactions;
 using Purple.DAL.UnitOfWork;
-
 using AutoMapper;
 
 namespace Purple.Business
@@ -16,9 +15,9 @@ namespace Purple.Business
     {
         private readonly UnitOfWork _unitOfWork;
 
-        public PropertyBusiness()
+        public PropertyBusiness(UnitOfWork unitOfWork)
         {
-            _unitOfWork = new UnitOfWork();
+            _unitOfWork = unitOfWork;
         }
 
 
@@ -33,7 +32,6 @@ namespace Purple.Business
             }
             return null;
         }
-
 
         public int CreateProperty(Property property)
         {
@@ -56,9 +54,8 @@ namespace Purple.Business
       
 
 
-        /// <summary>
-        /// _property : contains new values, 
-        ///  property : is the updated record, as properties are saved from parameter object
+        /// <summary>    
+        /// Updating the property
         /// </summary>
         /// <param name="_property"></param>
         /// <returns></returns>
@@ -88,6 +85,11 @@ namespace Purple.Business
         }
 
 
+        /// <summary>    
+        /// Deleting the Property
+        /// </summary>
+        /// <param name="_property"></param>
+        /// <returns></returns>
 
         public bool DeleteProperty(int propertyId)
         {
@@ -110,6 +112,12 @@ namespace Purple.Business
 
         }
 
+
+        /// <summary>    
+        /// Getting all properties
+        /// </summary>
+        /// <param name="_property"></param>
+        /// <returns></returns>
         public IEnumerable<Property> GetAllProperties()
         {
             var properties = _unitOfWork.PropertyRepository.GetAll().ToList();

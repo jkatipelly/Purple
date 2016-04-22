@@ -1,0 +1,4 @@
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Entities\bin\Release\Purple.Entities.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Entities\bin\Release\Purple.Entities.pdb
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Entities\obj\Release\Purple.Entities.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Entities\obj\Release\Purple.Entities.pdb

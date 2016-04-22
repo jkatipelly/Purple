@@ -15,16 +15,17 @@ namespace Purple.Business
     {
         private readonly UnitOfWork _unitOfWork;
 
-        public OfferBusiness()
+        public OfferBusiness(UnitOfWork unitOfWork)
         {
-            _unitOfWork = new UnitOfWork();
+            _unitOfWork = unitOfWork;
         }
 
         public Offer GetOfferById(int offerId)
         {
             var offer = _unitOfWork.OfferRepository.GetByID(offerId);
+            
             if (offer != null)
-            {
+            {                
                 Mapper.Initialize(cfg => { cfg.CreateMap<tblOffer, Offer>(); });
                 var offerModel = Mapper.Map<tblOffer, Offer>(offer);
                 return offerModel;
@@ -82,10 +83,10 @@ namespace Purple.Business
                     if (offer != null)
                     {
 
-                        offer.PropertyID = offer.PropertyID;
-                        offer.BuyerID = offer.BuyerID;
-                        offer.SellerID = offer.SellerID;
-                        offer.StatusID = offer.StatusID;
+                        offer.PropertyID = _offer.Property;
+                        offer.BuyerID = _offer.Buyer;
+                        offer.SellerID = _offer.Seller;
+                        offer.StatusID = _offer.Status;
 
                         _unitOfWork.OfferRepository.Update(offer);
                         _unitOfWork.Save();

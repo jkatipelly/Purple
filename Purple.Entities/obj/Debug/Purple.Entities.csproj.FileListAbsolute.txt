@@ -1,4 +1,3 @@
-C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Entities\obj\Debug\Purple.Entities.csprojResolveAssemblyReference.cache
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Entities\bin\Debug\Purple.Entities.dll
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Entities\bin\Debug\Purple.Entities.pdb
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.Entities\obj\Debug\Purple.Entities.dll

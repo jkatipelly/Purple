@@ -10,24 +10,15 @@ namespace Purple.WebAPI.Areas.HelpPage.Controllers
     /// The controller that will handle requests for the help page.
     /// </summary>
     public class HelpController : Controller
-    {
-        private const string ErrorViewName = "Error";
+    {        
 
-        public HelpController()
-            : this(GlobalConfiguration.Configuration)
+        protected static HttpConfiguration Configuration
         {
+            get { return GlobalConfiguration.Configuration; }
         }
-
-        public HelpController(HttpConfiguration config)
-        {
-            Configuration = config;
-        }
-
-        public HttpConfiguration Configuration { get; private set; }
 
         public ActionResult Index()
         {
-            ViewBag.DocumentationProvider = Configuration.Services.GetDocumentationProvider();
             return View(Configuration.Services.GetApiExplorer().ApiDescriptions);
         }
 
@@ -42,22 +33,8 @@ namespace Purple.WebAPI.Areas.HelpPage.Controllers
                 }
             }
 
-            return View(ErrorViewName);
+            return View("Error");
         }
 
-        public ActionResult ResourceModel(string modelName)
-        {
-            if (!String.IsNullOrEmpty(modelName))
-            {
-                ModelDescriptionGenerator modelDescriptionGenerator = Configuration.GetModelDescriptionGenerator();
-                ModelDescription modelDescription;
-                if (modelDescriptionGenerator.GeneratedModels.TryGetValue(modelName, out modelDescription))
-                {
-                    return View(modelDescription);
-                }
-            }
-
-            return View(ErrorViewName);
-        }
     }
 }

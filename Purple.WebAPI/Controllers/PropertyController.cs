@@ -6,9 +6,13 @@ using System.Net.Http;
 using System.Web.Http;
 using Purple.Business;
 using Purple.Entities;
+using AttributeRouting;
+using AttributeRouting.Web.Http;
+using Purple.WebAPI.Filters;
 
 namespace Purple.WebAPI.Controllers
 {
+    
     public class PropertyController : ApiController
     {
         private readonly IPropertyBusiness _propertyBusiness;
@@ -17,12 +21,13 @@ namespace Purple.WebAPI.Controllers
         /// <summary>
         /// public constructor to initialize property business instance
         /// </summary>
-        public PropertyController()
+        public PropertyController(IPropertyBusiness propertyBusiness)
         {
-            _propertyBusiness = new PropertyBusiness();
+            _propertyBusiness = propertyBusiness;
         }
-
+        
         // GET: api/Property
+        [AllowAnonymous]
         public HttpResponseMessage Get()
         {
             var properties = _propertyBusiness.GetAllProperties();
@@ -37,6 +42,7 @@ namespace Purple.WebAPI.Controllers
 
 
         // GET: api/Property/5
+        [AllowAnonymous]       
         public HttpResponseMessage Get(int id)
         {
             var property = _propertyBusiness.GetPropertyById(id);
@@ -48,18 +54,21 @@ namespace Purple.WebAPI.Controllers
         }
 
         // POST: api/Property
+        [ApiAuthenticationFilter]
         public int Post([FromBody]Property property)
         {
             return _propertyBusiness.CreateProperty(property);
         }
 
         // PUT: api/Property/5
+        [ApiAuthenticationFilter]
         public bool Put(int id, [FromBody]Property property)
         {
             return _propertyBusiness.UpdateProperty(id,property);
         }
 
         // DELETE: api/Property/5
+        [ApiAuthenticationFilter]
         public bool Delete(int id)
         {
             if (id > 0)

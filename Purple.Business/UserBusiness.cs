@@ -16,9 +16,9 @@ namespace Purple.Business
 
         private readonly UnitOfWork _unitOfWork;
 
-        public UserBusiness()
+        public UserBusiness(UnitOfWork unitOfWork)
         {
-            _unitOfWork = new UnitOfWork();
+            _unitOfWork = unitOfWork;
         }
 
 
@@ -46,16 +46,16 @@ namespace Purple.Business
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public bool Login(string username, string password)
+        public int Login(string username, string password)
         {
             var success = false;
-            var user = _unitOfWork.UserRepository.GetAll().Where(u => u.UserName == username).FirstOrDefault();
-            Byte[] passwordBinary = Encoding.ASCII.GetBytes(password); //converting string to Byte array
-            if ((user != null) && (user.IsActive) && (passwordBinary.Equals(user.Password)))
+            var user = _unitOfWork.UserRepository.GetAll().Where(u => u.UserName == username && u.Password== password && u.IsActive).FirstOrDefault();
+           
+            if (user != null)
             {
                 success = true;
             }
-            return success;
+            return user.UserID;
         }
 
         /// <summary>
@@ -71,11 +71,11 @@ namespace Purple.Business
                 {
                     FirstName = _user.FirstName,
                     LastName = _user.LastName,
-                    Password = Encoding.ASCII.GetBytes(_user.Password),
+                    Password =_user.Password,
                     EmailAddress = _user.Email,
                     UserTypeID=_user.UserType,
-                    IsActive=_user.IsActive
-               
+                    IsActive=_user.IsActive,
+                    UserName=_user.UserName               
                 };
 
                 _unitOfWork.UserRepository.Insert(user);
@@ -101,7 +101,7 @@ namespace Purple.Business
                     {
                         user.FirstName = _user.FirstName;
                         user.LastName = _user.LastName;
-                        user.Password = Encoding.ASCII.GetBytes(_user.Password);
+                        user.Password = _user.Password;
                         user.EmailAddress = _user.Email;
                         user.IsActive = _user.IsActive;
 

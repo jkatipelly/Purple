@@ -25,6 +25,8 @@ C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Micr
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Newtonsoft.Json.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Purple.DAL.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Purple.Entities.dll
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\System.Net.Http.Formatting.dll
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\System.Web.Helpers.dll
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\System.Web.Http.dll
@@ -36,6 +38,9 @@ C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Syst
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\System.Web.WebPages.dll
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\System.Web.WebPages.Razor.dll
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\WebGrease.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\EntityFramework.dll
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Purple.DAL.pdb
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Purple.Entities.pdb
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Microsoft.AI.Web.xml
@@ -54,12 +59,7 @@ C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Newt
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\System.Net.Http.Formatting.xml
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\System.Web.Http.xml
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\System.Web.Http.WebHost.xml
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\EntityFramework.xml
+C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\obj\Debug\Purple.UI.csprojResolveAssemblyReference.cache
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\obj\Debug\Purple.dll
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\obj\Debug\Purple.pdb
-C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\obj\Debug\Purple.UI.csprojResolveAssemblyReference.cache
-C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\EntityFramework.dll
-C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Purple.DAL.dll
-C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Purple.Entities.dll
-C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Purple.DAL.pdb
-C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\Purple.Entities.pdb
-C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple\bin\EntityFramework.xml

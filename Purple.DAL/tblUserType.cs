@@ -20,7 +20,7 @@ namespace Purple.DAL
         }
     
         public int UserTypeID { get; set; }
-        public byte[] Description { get; set; }
+        public string Description { get; set; }
     
         public virtual ICollection<tblUser> tblUsers { get; set; }
     }

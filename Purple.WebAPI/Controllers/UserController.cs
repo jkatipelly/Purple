@@ -13,9 +13,9 @@ namespace Purple.WebAPI.Controllers
     {
         private readonly IUserBusiness _userBusiness;
 
-        public UserController()
+        public UserController(IUserBusiness userBusiness)
         {
-            _userBusiness = new UserBusiness();
+            _userBusiness = userBusiness;
         } 
 
         // GET: api/User
