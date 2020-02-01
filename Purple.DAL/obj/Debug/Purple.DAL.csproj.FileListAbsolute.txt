@@ -10,3 +10,17 @@ C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.DAL\bin\
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.DAL\obj\Debug\Purple.DAL.csprojResolveAssemblyReference.cache
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.DAL\obj\Debug\Purple.DAL.dll
 C:\Users\jkatipelly\Documents\Visual Studio 2015\Projects\Purple\Purple.DAL\obj\Debug\Purple.DAL.pdb
+C:\Users\jk15\Source\Repos\Purple\Purple.DAL\bin\Debug\Purple.DAL.dll.config
+C:\Users\jk15\Source\Repos\Purple\Purple.DAL\bin\Debug\Purple.DAL.dll
+C:\Users\jk15\Source\Repos\Purple\Purple.DAL\bin\Debug\Purple.DAL.pdb
+C:\Users\jk15\Source\Repos\Purple\Purple.DAL\bin\Debug\EntityFramework.dll
+C:\Users\jk15\Source\Repos\Purple\Purple.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jk15\Source\Repos\Purple\Purple.DAL\bin\Debug\Purple.Entities.dll
+C:\Users\jk15\Source\Repos\Purple\Purple.DAL\bin\Debug\Purple.Entities.pdb
+C:\Users\jk15\Source\Repos\Purple\Purple.DAL\bin\Debug\EntityFramework.xml
+C:\Users\jk15\Source\Repos\Purple\Purple.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jk15\Source\Repos\Purple\Purple.DAL\obj\Debug\Purple.DAL.csprojAssemblyReference.cache
+C:\Users\jk15\Source\Repos\Purple\Purple.DAL\obj\Debug\Purple.DAL.csproj.CoreCompileInputs.cache
+C:\Users\jk15\Source\Repos\Purple\Purple.DAL\obj\Debug\Purple.DAL.csproj.CopyComplete
+C:\Users\jk15\Source\Repos\Purple\Purple.DAL\obj\Debug\Purple.DAL.dll
+C:\Users\jk15\Source\Repos\Purple\Purple.DAL\obj\Debug\Purple.DAL.pdb

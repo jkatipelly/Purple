@@ -1,13 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Purple.UI", "Purple\Purple.UI.csproj", "{89304E82-8519-4C1A-8A64-DF65202B8097}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Purple.Tests", "Purple.Tests\Purple.Tests.csproj", "{7EBAAD2C-C120-44AC-AB89-EB387A1732DF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Purple.WebAPI", "Purple.WebAPI\Purple.WebAPI.csproj", "{1A983DD7-AB14-4AFA-9071-F1018455647E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Purple.DAL", "Purple.DAL\Purple.DAL.csproj", "{5D31807F-A3CF-4F6E-9974-11806B80E382}"
 EndProject
@@ -29,10 +27,6 @@ Global
 		{7EBAAD2C-C120-44AC-AB89-EB387A1732DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EBAAD2C-C120-44AC-AB89-EB387A1732DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EBAAD2C-C120-44AC-AB89-EB387A1732DF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1A983DD7-AB14-4AFA-9071-F1018455647E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1A983DD7-AB14-4AFA-9071-F1018455647E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1A983DD7-AB14-4AFA-9071-F1018455647E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1A983DD7-AB14-4AFA-9071-F1018455647E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5D31807F-A3CF-4F6E-9974-11806B80E382}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5D31807F-A3CF-4F6E-9974-11806B80E382}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D31807F-A3CF-4F6E-9974-11806B80E382}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,5 +45,6 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
+		SolutionGuid = {A53A36E8-314F-4AB5-815B-CC907CEB8CF8}
 	EndGlobalSection
 EndGlobal
